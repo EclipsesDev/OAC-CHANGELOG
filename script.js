@@ -29,7 +29,7 @@ function activateSection(id) {
   });
 
   sections.forEach(sec => {
-    sec.classList.toggle("active", sec.id === id);
+    sec.style.display = sec.id === id ? "block" : "none";
   });
 }
 
@@ -37,6 +37,7 @@ function handleRoute() {
   const path = window.location.pathname.replace("/", "");
   const valid = document.getElementById(path);
   activateSection(valid ? path : "home");
+  document.body.style.visibility = "visible";
 }
 
 document.querySelectorAll(".menu-bar button").forEach(button => {
@@ -47,8 +48,8 @@ document.querySelectorAll(".menu-bar button").forEach(button => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", handleRoute);
 window.addEventListener("popstate", handleRoute);
-window.addEventListener("load", handleRoute);
 
 fetch("changelog.txt")
   .then(response => response.text())
