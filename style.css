@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1f2b, #2a2f3a);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #1c1c1c;
+  padding: 40px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+#changelog {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+#changelog::-webkit-scrollbar {
+  width: 8px;
+}
+
+#changelog::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.log-section { 
+  background: #111; 
+  padding: 20px;
+  margin-bottom: 25px; 
+  border-radius: 12px; 
+  border: 2px solid #4da6ff; 
+  box-shadow: 0 0 15px rgba(77,166,255,0.2);
+}
+
+.log-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #4da6ff;
+}
+
+.log-section ul {
+  padding-left: 20px;
+}
+
+.log-section li {
+  margin-bottom: 8px;
+}
