@@ -101,7 +101,7 @@ fetch("changelog.txt")
     const container = document.getElementById("changelog");
     container.innerHTML = "";
 
-    const logs = text.split(/Dev Log\s+/).filter(Boolean).reverse();
+    const logs = text.split(/\n?Dev Log\s+/).filter(Boolean).reverse();
 
     logs.forEach(log => {
       const section = document.createElement("div");
