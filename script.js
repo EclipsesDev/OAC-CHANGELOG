@@ -15,6 +15,36 @@ buttons.forEach(button => {
   });
 });
 
+function activateSection(id) {
+  const buttons = document.querySelectorAll(".menu-bar button");
+  const sections = document.querySelectorAll(".section");
+
+  buttons.forEach(b => {
+    b.classList.toggle("active", b.dataset.section === id);
+  });
+
+  sections.forEach(sec => {
+    sec.classList.toggle("active", sec.id === id);
+  });
+}
+
+function handleRoute() {
+  const path = window.location.pathname.replace("/", "");
+  const valid = document.getElementById(path);
+  activateSection(valid ? path : "home");
+}
+
+document.querySelectorAll(".menu-bar button").forEach(button => {
+  button.addEventListener("click", () => {
+    const target = button.dataset.section;
+    history.pushState(null, "", "/" + target);
+    activateSection(target);
+  });
+});
+
+window.addEventListener("popstate", handleRoute);
+window.addEventListener("load", handleRoute);
+
 fetch("changelog.txt")
   .then(response => response.text())
   .then(text => {

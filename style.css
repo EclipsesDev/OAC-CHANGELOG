@@ -10,6 +10,10 @@ body {
   min-height: 100vh;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   background: #1c1c1c;
   padding: 40px;
