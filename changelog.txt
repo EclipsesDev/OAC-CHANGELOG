@@ -1,0 +1,6 @@
+(Dev Log 20/02/2026)
+- Added Discord Webhook Punishment
+- Reworked MorePackets (B) More Lenient
+- Reworked Velocity (B) More Accurate
+- Reworked Speed (A) Vanilla Behavior Accuracy pt.2
+- Reworked Fly (D) Vanilla Behavior Accuracy
