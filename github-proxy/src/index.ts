@@ -11,11 +11,13 @@ export default {
         }
       );
 
-      if (!response.ok) {
-        const text = await response.text();
-        console.log("GitHub fetch failed:", response.status, text);
-        return new Response("Failed to fetch changelog", { status: 500 });
-      }
+    if (!response.ok) {
+		const text = await response.text();
+		return new Response(
+			`GitHub fetch failed: ${response.status} ${response.statusText}\n${text}`,
+			{ status: 500 }
+		);
+	}
 
       const text = await response.text();
       return new Response(text, {
