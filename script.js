@@ -51,13 +51,10 @@ document.querySelectorAll(".menu-bar button").forEach(button => {
 document.addEventListener("DOMContentLoaded", handleRoute);
 window.addEventListener("popstate", handleRoute);
 
-fetch("https://api.eclipsesdev.my.id", {
-  method: "GET",
-  credentials: "include"
-})
+fetch("https://api.eclipsesdev.my.id")
   .then(response => {
     if (!response.ok) {
-      throw new Error("Access denied or failed request");
+      throw new Error("Failed to load changelog");
     }
     return response.text();
   })
