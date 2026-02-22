@@ -45,7 +45,7 @@ body {
 #changelog {
   max-height: 600px;
   overflow-y: auto;
-  padding-right: 50px;
+  scrollbar-gutter: stable;
 }
 
 #changelog::-webkit-scrollbar {
