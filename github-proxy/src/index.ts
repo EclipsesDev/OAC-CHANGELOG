@@ -4,11 +4,11 @@ export default {
       const response = await fetch(
         "https://api.github.com/repos/EclipsesDev/ECLIPSES_API/contents/changelog.txt",
         {
-          headers: {
-			Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-			Accept: "application/vnd.github.v3.raw",
-			"User-Agent": "Cloudflare-Worker",
-		},
+           	headers: {
+				Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+				Accept: "application/vnd.github.v3.raw",
+				"User-Agent": "Cloudflare-Worker",
+			},
         }
       );
 
