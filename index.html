@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EclipsesDev - Portal</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/YnAhNh9.png">
     <link rel="stylesheet" href="style.css">
@@ -12,7 +13,10 @@
       <!-- Menu Bar -->
       <nav class="menu-bar">
         <button data-section="home" class="active">Home</button>
-        <button data-section="changelog">OAC Changelog</button>
+        <button data-section="changelog">Oriental Changelog</button>
+        <a href="projects/typing-test/index.html">
+          <button>Typing Test</button>
+        </a>
         <button data-section="about">About</button>
       </nav>
       
@@ -48,8 +52,8 @@
 
         <!-- Changelog Section -->
         <div id="changelog" class="section">
-          <div class="title">OAC Development Logs</div>
-          <div class="subtitle">Consisting of all the updates and changes made to OAC</div>
+          <div class="title">Oriental Development Logs</div>
+          <div class="subtitle">Consisting of all the updates and changes made to Oriental Development</div>
           <div id="changelog-logs">Loading changelog...</div>
         </div>
         
@@ -67,6 +71,7 @@
       
     </div>
     
+    <!-- Script Section -->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </body>

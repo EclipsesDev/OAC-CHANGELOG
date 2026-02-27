@@ -4,52 +4,61 @@ if (redirect) {
   history.replaceState(null, "", redirect);
 }
 
-const buttons = document.querySelectorAll(".menu-bar button");
-const sections = document.querySelectorAll(".section");
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    const target = button.dataset.section;
+// const buttons = document.querySelectorAll(".menu-bar button");
+// const sections = document.querySelectorAll(".section");
+// buttons.forEach(button => {
+//   button.addEventListener("click", () => {
+//     const target = button.dataset.section;
 
-    buttons.forEach(b => b.classList.remove("active"));
-    button.classList.add("active");
+//     buttons.forEach(b => b.classList.remove("active"));
+//     button.classList.add("active");
 
-    sections.forEach(sec => {
-      sec.classList.remove("active");
-      if (sec.id === target) sec.classList.add("active");
-    });
-  });
-});
+//     sections.forEach(sec => {
+//       sec.classList.remove("active");
+//       if (sec.id === target) sec.classList.add("active");
+//     });
+//   });
+// });
 
 function activateSection(id) {
   const buttons = document.querySelectorAll(".menu-bar button");
   const sections = document.querySelectorAll(".section");
 
-  buttons.forEach(b => {
-    b.classList.toggle("active", b.dataset.section === id);
-  });
+  let found = false;
 
   sections.forEach(sec => {
-    sec.style.display = sec.id === id ? "block" : "none";
+    if (sec.id === id) {
+      sec.style.display = "block";
+      found = true;
+    } else {
+      sec.style.display = "none";
+    }
   });
+
+  buttons.forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.section === id);
+  });
+
+  if (!found) {
+    activateSection("home");
+  }
 }
 
 function handleRoute() {
-  const path = window.location.pathname.replace("/", "");
-  const valid = document.getElementById(path);
-  activateSection(valid ? path : "home");
-  document.body.style.visibility = "visible";
+  const hash = window.location.hash;
+  const section = hash ? hash.substring(1) : "home";
+  activateSection(section);
 }
 
 document.querySelectorAll(".menu-bar button").forEach(button => {
   button.addEventListener("click", () => {
     const target = button.dataset.section;
-    history.pushState(null, "", "/" + target);
-    activateSection(target);
+    window.location.hash = target;
   });
 });
 
+window.addEventListener("hashchange", handleRoute);
 document.addEventListener("DOMContentLoaded", handleRoute);
-window.addEventListener("popstate", handleRoute);
 
 fetch("https://api.eclipsesdev.my.id")
   .then(response => {
