@@ -45,7 +45,7 @@ function activateSection(id) {
 }
 
 function handleRoute() {
-  const path = window.location.pathname.substring(1);
+  const path = window.location.pathname.split("/")[1];
   const section = path || "home";
   activateSection(section);
 }
@@ -53,7 +53,7 @@ function handleRoute() {
 document.querySelectorAll(".menu-bar button").forEach(button => {
   button.addEventListener("click", () => {
     const target = button.dataset.section;
-    history.pushState(null, "", target);
+    history.pushState(null, "", "/" + target);
     activateSection(target);
   });
 });
