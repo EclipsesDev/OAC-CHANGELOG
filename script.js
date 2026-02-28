@@ -84,9 +84,13 @@ fetch("https://api.eclipsesdev.my.id")
       title.className = "log-title";
       title.textContent = titleText;
 
+      const devTitle = document.createElement("div");
+      devTitle.className = "log-project";
+      devTitle.textContent = lines[1].replace("Project: ", "").trim();
+
       const list = document.createElement("ul");
 
-      lines.slice(1).forEach(line => {
+      lines.slice(2).forEach(line => {
         if (line.trim().startsWith("-")) {
           const li = document.createElement("li");
           li.textContent = line.replace("-", "").trim();
@@ -95,6 +99,7 @@ fetch("https://api.eclipsesdev.my.id")
       });
 
       section.appendChild(title);
+      section.appendChild(devTitle);
       section.appendChild(list);
       container.appendChild(section);
     });
