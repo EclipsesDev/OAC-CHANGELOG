@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EclipsesDev - Typing Test</title>
 
-    <script>
+    <!-- <script>
     if (location.pathname.endsWith("index.html")) {
     location.replace(location.pathname.replace("index.html", ""));
     }
-    </script>
+    </script> -->
 
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="style.css">
@@ -19,22 +19,24 @@
 <div class="container">
 
   <nav class="menu-bar">
-    <a href="/">Home</a>
+    <a href="/">
+      <button>Home</button>
+    </a>
   </nav>
 
   <div class="section">
     <div class="title">Typing Speed Tester</div>
 
     <select id="difficulty-select">
-        <option value="easy">Easy</option>
-        <option value="medium" selected>Medium</option>
-        <option value="hard">Hard</option>
+      <option value="easy">Easy</option>
+      <option value="medium" selected>Medium</option>
+      <option value="hard">Hard</option>
     </select>
 
     <div class="stats">
-        <span>Time: <b id="time">60</b>s</span>
-        <span>WPM: <b id="wpm">0</b></span>
-        <span>Accuracy: <b id="accuracy">100</b>%</span>
+      <span>Time: <b id="time">60</b>s</span>
+      <span>WPM: <b id="wpm">0</b></span>
+      <span>Accuracy: <b id="accuracy">100</b>%</span>
     </div>
 
     <div id="text-display" class="text-display"></div>
